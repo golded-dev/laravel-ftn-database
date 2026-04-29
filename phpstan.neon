@@ -1,0 +1,15 @@
+includes:
+    - vendor/odinns/coding-style/config/larastan.neon
+    - vendor/odinns/phpstan-pest-this/extension.neon
+
+parameters:
+    level: max
+    paths:
+        - src
+        - config
+        - database
+        - tests
+    pestClosureThisTypeMap:
+        -
+            pathContains: '/tests/'
+            class: Golded\Ftn\Database\Tests\TestCase

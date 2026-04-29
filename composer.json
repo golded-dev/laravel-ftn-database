@@ -1,0 +1,74 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "golded-dev/laravel-ftn-database",
+    "description": "Laravel schema and base models for imported FTN archive facts.",
+    "keywords": [
+        "database",
+        "fidonet",
+        "ftn",
+        "golded",
+        "laravel",
+        "message-base"
+    ],
+    "homepage": "https://github.com/golded-dev/laravel-ftn-database",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "GoldED.dev contributors"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/golded-dev/laravel-ftn-database/issues",
+        "source": "https://github.com/golded-dev/laravel-ftn-database"
+    },
+    "require": {
+        "php": "^8.4",
+        "illuminate/database": "^13.0",
+        "illuminate/support": "^13.0"
+    },
+    "require-dev": {
+        "odinns/coding-style": "^1.0.1",
+        "odinns/phpstan-pest-this": "^1.0",
+        "orchestra/testbench": "^11.0",
+        "pestphp/pest": "^4.4",
+        "pestphp/pest-plugin-laravel": "^4.1",
+        "phpstan/phpstan": "^2.1",
+        "rector/rector": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Golded\\Ftn\\Database\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Golded\\Ftn\\Database\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "test:types": "phpstan analyse",
+        "test:refactor": "rector process --dry-run",
+        "test:all": [
+            "@test",
+            "@test:types",
+            "@test:refactor"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Golded\\Ftn\\Database\\FtnDatabaseServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        },
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
