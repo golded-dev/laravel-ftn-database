@@ -14,6 +14,12 @@ composer require golded-dev/laravel-ftn-database:^1.0
 
 Requires PHP 8.4+ and Laravel 13 components.
 
+Supported database targets:
+
+- SQLite
+- MySQL
+- PostgreSQL
+
 ## What It Provides
 
 - `Golded\Ftn\Database\FtnDatabaseServiceProvider`
@@ -39,7 +45,7 @@ Publish migrations when the app needs to own the files directly:
 php artisan vendor:publish --tag=ftn-database-migrations
 ```
 
-`control_lines_json` and `provenance_json` are text-backed JSON payloads with array casts on the model. That keeps SQLite and MySQL behavior plain.
+`control_lines_json` and `provenance_json` are text-backed JSON payloads with array casts on the model. That keeps SQLite, MySQL, and PostgreSQL behavior plain.
 
 ## Config
 
@@ -171,6 +177,14 @@ The MySQL migration check is skipped unless these environment variables are set:
 - `FTN_DATABASE_MYSQL_PORT`
 - `FTN_DATABASE_MYSQL_USERNAME`
 - `FTN_DATABASE_MYSQL_PASSWORD`
+
+The PostgreSQL migration check is skipped unless these environment variables are set:
+
+- `FTN_DATABASE_POSTGRES_DATABASE`
+- `FTN_DATABASE_POSTGRES_HOST`
+- `FTN_DATABASE_POSTGRES_PORT`
+- `FTN_DATABASE_POSTGRES_USERNAME`
+- `FTN_DATABASE_POSTGRES_PASSWORD`
 
 ## Versioning
 

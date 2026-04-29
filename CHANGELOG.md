@@ -4,6 +4,14 @@ Notable changes to `golded-dev/laravel-ftn-database`.
 
 This project uses semantic versioning.
 
+## 1.1.0 - 2026-04-29
+
+### Added
+
+- Add PostgreSQL as a supported database target.
+- Add an env-driven PostgreSQL migration test.
+- Add PostgreSQL migration coverage to CI.
+
 ## 1.0.0 - 2026-04-29
 
 Initial stable release.

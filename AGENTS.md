@@ -12,7 +12,7 @@
 - The package owns imported archive facts: source identity, area metadata, message addressing, content, reply metadata, control lines, and provenance.
 - The package does not own reader behavior: read flags, bookmarks, cached counters, cursor positions, or UI ordering invented by an app.
 - Keep private archive data out of tests and docs. Use tiny synthetic records.
-- Do not claim database support beyond SQLite and MySQL until it has its own proof.
+- SQLite, MySQL, and PostgreSQL are supported database targets. Keep that claim backed by tests.
 
 ## Laravel Surface
 
@@ -35,7 +35,7 @@
 - `messages.area_id`, `messages.source_type`, and `messages.source_uid` are the durable import identity.
 - `msgno` is display and navigation metadata, not identity.
 - `external_id` is unique only inside an area.
-- Multiple `null` external IDs must remain valid on SQLite and MySQL.
+- Multiple `null` external IDs must remain valid on SQLite, MySQL, and PostgreSQL.
 - `control_lines_json` and `provenance_json` are text-backed JSON columns with model array casts.
 
 ## Coding Style
@@ -71,5 +71,5 @@
 
 - Watch for app state leaking into the archive package.
 - Watch for global identity rules. Identity is scoped by area and source.
-- Watch for JSON column cleverness. SQLite and MySQL portability wins.
+- Watch for JSON column cleverness. SQLite, MySQL, and PostgreSQL portability wins.
 - Watch for model relationships that accidentally assume a Laravel app namespace.

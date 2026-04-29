@@ -10,7 +10,7 @@ Good fits:
 
 - archive schema fixes
 - base model relationship fixes
-- SQLite and MySQL portability fixes
+- SQLite, MySQL, and PostgreSQL portability fixes
 - source identity and external ID behavior fixes
 - docs that sharpen the archive/app boundary
 - tests for real storage behavior
@@ -78,7 +78,7 @@ Add tests for behavior, especially around:
 - multiple `null` external IDs
 - configured model relationships
 - text-backed JSON casts
-- fresh migrations on SQLite and MySQL
+- fresh migrations on SQLite, MySQL, and PostgreSQL
 
 ## Pull Requests
 

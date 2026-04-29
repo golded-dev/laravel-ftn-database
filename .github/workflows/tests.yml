@@ -14,6 +14,21 @@ jobs:
     name: PHP ${{ matrix.php }}
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: ftn_database
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d ftn_database"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     strategy:
       fail-fast: false
       matrix:
@@ -38,3 +53,12 @@ jobs:
 
       - name: Run quality gates
         run: composer test:all
+
+      - name: Run PostgreSQL migration check
+        run: vendor/bin/pest tests/Feature/PostgresMigrationTest.php
+        env:
+          FTN_DATABASE_POSTGRES_DATABASE: ftn_database
+          FTN_DATABASE_POSTGRES_HOST: 127.0.0.1
+          FTN_DATABASE_POSTGRES_PASSWORD: postgres
+          FTN_DATABASE_POSTGRES_PORT: 5432
+          FTN_DATABASE_POSTGRES_USERNAME: postgres
